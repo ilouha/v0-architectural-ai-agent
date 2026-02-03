@@ -258,8 +258,8 @@ export function Templates() {
           </p>
         </div>
 
-        {/* Isometric cards carousel */}
-        <div className="relative max-w-sm lg:max-w-md mx-auto h-[420px] lg:h-[480px] mb-8 lg:mb-12" style={{ perspective: "1200px" }}>
+        {/* 45-degree isometric cards carousel */}
+        <div className="relative max-w-xs sm:max-w-sm lg:max-w-md mx-auto h-[380px] lg:h-[450px] mb-8 lg:mb-12" style={{ perspective: "1500px" }}>
           {templates.map((template, index) => {
             const offset = (index - activeIndex + templates.length) % templates.length
             const isActive = offset === 0
@@ -275,25 +275,25 @@ export function Templates() {
             if (isActive) {
               translateX = 0
               translateY = 0
-              translateZ = 0
+              translateZ = 50
               zIndex = 30
               opacity = 1
             } else if (isNext) {
-              translateX = 80
-              translateY = 40
-              translateZ = -100
+              translateX = 60
+              translateY = 60
+              translateZ = -50
               zIndex = 20
-              opacity = 0.7
+              opacity = 0.6
             } else if (isPrev) {
-              translateX = -80
-              translateY = 40
-              translateZ = -100
+              translateX = -60
+              translateY = 60
+              translateZ = -50
               zIndex = 10
-              opacity = 0.5
+              opacity = 0.4
             } else {
               translateX = 0
-              translateY = 60
-              translateZ = -200
+              translateY = 80
+              translateZ = -150
               zIndex = 0
               opacity = 0
             }
@@ -306,19 +306,19 @@ export function Templates() {
                 className="absolute inset-0 transition-all duration-500 ease-out cursor-pointer"
                 style={{
                   transform: `
-                    rotateX(12deg) 
-                    rotateY(-8deg) 
-                    rotateZ(2deg)
+                    rotateX(45deg) 
+                    rotateZ(-45deg)
                     translateX(${translateX}px) 
                     translateY(${translateY}px) 
                     translateZ(${translateZ}px)
+                    scale(0.85)
                   `,
                   zIndex,
                   opacity,
                   transformStyle: "preserve-3d",
                   boxShadow: isActive 
-                    ? "20px 30px 60px -10px rgba(0,0,0,0.15), 0 10px 20px -5px rgba(0,0,0,0.1)" 
-                    : "10px 15px 30px -5px rgba(0,0,0,0.1)",
+                    ? "30px 30px 60px -15px rgba(0,0,0,0.2), -5px -5px 20px -10px rgba(255,255,255,0.1)" 
+                    : "15px 15px 30px -10px rgba(0,0,0,0.15)",
                 }}
                 onClick={() => {
                   if (isNext) nextCard()

@@ -54,7 +54,7 @@ export function HowItWorks() {
               
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-background rounded-xl flex items-center justify-center border border-border group-hover:border-foreground/20 transition-colors">
+                  <div className="w-12 h-12 bg-card backdrop-blur-xl rounded-xl flex items-center justify-center border border-border group-hover:border-foreground/20 transition-colors">
                     <step.icon className="w-5 h-5 text-foreground" />
                   </div>
                   <span className="text-sm font-mono text-muted-foreground">{step.number}</span>

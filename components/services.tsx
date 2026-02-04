@@ -78,7 +78,7 @@ export function Services() {
                 {capability.tags.map((tag) => (
                   <span 
                     key={tag}
-                    className="text-xs font-medium text-muted-foreground px-2.5 py-1 bg-background rounded-md border border-border"
+                    className="text-xs font-medium text-muted-foreground px-2.5 py-1 bg-card backdrop-blur-xl rounded-md border border-border"
                   >
                     {tag}
                   </span>

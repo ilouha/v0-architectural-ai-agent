@@ -25,7 +25,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-24 lg:py-32 bg-secondary">
+    <section className="py-24 lg:py-32">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="max-w-2xl mb-16">
@@ -48,7 +48,7 @@ export function Testimonials() {
           {testimonials.map((testimonial) => (
             <div 
               key={testimonial.author}
-              className="bg-background p-6 rounded-2xl border border-border"
+              className="bg-card backdrop-blur-xl p-6 rounded-2xl border border-border"
             >
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (

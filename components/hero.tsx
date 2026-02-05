@@ -52,6 +52,8 @@ const chatMessages = [
 
 export function Hero() {
   const [visibleMessages, setVisibleMessages] = useState(0)
+  const mobileMessagesRef = useRef<HTMLDivElement>(null)
+  const desktopMessagesRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (visibleMessages < chatMessages.length) {
@@ -59,6 +61,16 @@ export function Hero() {
         setVisibleMessages((prev) => prev + 1)
       }, 1500)
       return () => clearTimeout(timer)
+    }
+  }, [visibleMessages])
+
+  // Auto-scroll to bottom when new messages appear
+  useEffect(() => {
+    if (mobileMessagesRef.current) {
+      mobileMessagesRef.current.scrollTop = mobileMessagesRef.current.scrollHeight
+    }
+    if (desktopMessagesRef.current) {
+      desktopMessagesRef.current.scrollTop = desktopMessagesRef.current.scrollHeight
     }
   }, [visibleMessages])
 

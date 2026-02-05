@@ -258,24 +258,24 @@ export function Templates() {
           </p>
         </div>
 
-        {/* Stacked cards carousel */}
-        <div className="relative max-w-sm lg:max-w-md mx-auto h-[380px] lg:h-[420px] mb-8 lg:mb-12">
+        {/* 45-degree isometric cards carousel */}
+        <div className="relative max-w-xs sm:max-w-sm lg:max-w-md mx-auto h-[380px] lg:h-[450px] mb-8 lg:mb-12" style={{ perspective: "1500px" }}>
           {templates.map((template, index) => {
             const offset = (index - activeIndex + templates.length) % templates.length
             const isActive = offset === 0
             const isNext = offset === 1
             const isPrev = offset === templates.length - 1
             
-            let transform = ""
+            let translateX = 0
+            let translateY = 0
+            let translateZ = 0
             let zIndex = 0
             let opacity = 0
-            let scale = 1
             
             if (isActive) {
               transform = "translateY(0) translateX(0)"
               zIndex = 40
               opacity = 1
-              scale = 1
             } else if (isNext) {
               transform = "translateY(15px) translateX(15px)"
               zIndex = 30

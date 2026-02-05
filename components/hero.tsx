@@ -52,6 +52,8 @@ const chatMessages = [
 
 export function Hero() {
   const [visibleMessages, setVisibleMessages] = useState(0)
+  const mobileMessagesRef = useRef<HTMLDivElement>(null)
+  const desktopMessagesRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (visibleMessages < chatMessages.length) {
@@ -59,6 +61,16 @@ export function Hero() {
         setVisibleMessages((prev) => prev + 1)
       }, 1500)
       return () => clearTimeout(timer)
+    }
+  }, [visibleMessages])
+
+  // Auto-scroll to bottom when new messages appear
+  useEffect(() => {
+    if (mobileMessagesRef.current) {
+      mobileMessagesRef.current.scrollTop = mobileMessagesRef.current.scrollHeight
+    }
+    if (desktopMessagesRef.current) {
+      desktopMessagesRef.current.scrollTop = desktopMessagesRef.current.scrollHeight
     }
   }, [visibleMessages])
 
@@ -86,7 +98,7 @@ export function Hero() {
                 <span className="text-[10px] text-muted-foreground">Online</span>
               </div>
             </div>
-            <div className="px-3 py-3 min-h-[140px] md:min-h-[160px] flex flex-col gap-2 bg-background">
+            <div ref={mobileMessagesRef} className="px-3 py-3 h-[140px] md:h-[160px] flex flex-col gap-2 bg-background overflow-y-auto">
               {chatMessages.slice(0, visibleMessages).map((msg, i) => (
                 <div
                   key={i}
@@ -221,7 +233,7 @@ export function Hero() {
               </div>
 
               {/* Chat messages */}
-              <div className="px-3 lg:px-5 py-3 lg:py-6 min-h-[180px] lg:min-h-[340px] flex flex-col gap-2 lg:gap-4 bg-background">
+              <div ref={desktopMessagesRef} className="px-3 lg:px-5 py-3 lg:py-6 h-[180px] lg:h-[340px] flex flex-col gap-2 lg:gap-4 bg-background overflow-y-auto">
                 {chatMessages.slice(0, visibleMessages).map((msg, i) => (
                   <div
                     key={i}

@@ -258,39 +258,44 @@ export function Templates() {
           </p>
         </div>
 
-        {/* Stacked cards carousel */}
-        <div className="relative max-w-sm lg:max-w-md mx-auto h-[380px] lg:h-[420px] mb-8 lg:mb-12">
+        {/* 45-degree isometric cards carousel */}
+        <div className="relative max-w-xs sm:max-w-sm lg:max-w-md mx-auto h-[380px] lg:h-[450px] mb-8 lg:mb-12" style={{ perspective: "1500px" }}>
           {templates.map((template, index) => {
             const offset = (index - activeIndex + templates.length) % templates.length
             const isActive = offset === 0
             const isNext = offset === 1
             const isPrev = offset === templates.length - 1
             
-            let transform = ""
+            let translateX = 0
+            let translateY = 0
+            let translateZ = 0
             let zIndex = 0
             let opacity = 0
-            let scale = 1
             
             if (isActive) {
-              transform = "translateX(0) rotateY(0deg)"
+              translateX = 0
+              translateY = 0
+              translateZ = 50
               zIndex = 30
               opacity = 1
-              scale = 1
             } else if (isNext) {
-              transform = "translateX(30px) rotateY(-8deg)"
+              translateX = 60
+              translateY = 60
+              translateZ = -50
               zIndex = 20
               opacity = 0.6
-              scale = 0.92
             } else if (isPrev) {
-              transform = "translateX(-30px) rotateY(8deg)"
+              translateX = -60
+              translateY = 60
+              translateZ = -50
               zIndex = 10
               opacity = 0.4
-              scale = 0.88
             } else {
-              transform = "translateX(0) rotateY(0deg)"
+              translateX = 0
+              translateY = 80
+              translateZ = -150
               zIndex = 0
               opacity = 0
-              scale = 0.85
             }
 
             const CardComponent = template.component
@@ -300,10 +305,20 @@ export function Templates() {
                 key={template.id}
                 className="absolute inset-0 transition-all duration-500 ease-out cursor-pointer"
                 style={{
-                  transform: `perspective(1000px) ${transform} scale(${scale})`,
+                  transform: `
+                    rotateX(45deg) 
+                    rotateZ(-45deg)
+                    translateX(${translateX}px) 
+                    translateY(${translateY}px) 
+                    translateZ(${translateZ}px)
+                    scale(0.85)
+                  `,
                   zIndex,
                   opacity,
                   transformStyle: "preserve-3d",
+                  boxShadow: isActive 
+                    ? "30px 30px 60px -15px rgba(0,0,0,0.2), -5px -5px 20px -10px rgba(255,255,255,0.1)" 
+                    : "15px 15px 30px -10px rgba(0,0,0,0.15)",
                 }}
                 onClick={() => {
                   if (isNext) nextCard()

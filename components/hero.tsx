@@ -85,8 +85,8 @@ export function Hero() {
           </div>
           
           {/* Chat interface for mobile/tablet */}
-          <div className="bg-background border border-border rounded-2xl overflow-hidden shadow-xl max-w-sm md:max-w-md mx-auto">
-            <div className="flex items-center gap-2 px-3 py-2.5 bg-background border-b border-border">
+          <div className="bg-card backdrop-blur-xl border border-border rounded-2xl overflow-hidden shadow-xl max-w-sm md:max-w-md mx-auto">
+            <div className="flex items-center gap-2 px-3 py-2.5 bg-card backdrop-blur-xl border-b border-border">
               <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-[10px]">A</span>
               </div>
@@ -98,7 +98,7 @@ export function Hero() {
                 <span className="text-[10px] text-muted-foreground">Online</span>
               </div>
             </div>
-            <div ref={mobileMessagesRef} className="px-3 py-3 h-[140px] md:h-[160px] flex flex-col gap-2 bg-background overflow-y-auto">
+            <div className="px-3 py-3 min-h-[140px] md:min-h-[160px] flex flex-col gap-2 bg-card backdrop-blur-xl">
               {chatMessages.slice(0, visibleMessages).map((msg, i) => (
                 <div
                   key={i}
@@ -133,7 +133,7 @@ export function Hero() {
                 </div>
               )}
             </div>
-            <div className="px-3 py-2.5 bg-background border-t border-border rounded-b-2xl">
+            <div className="px-3 py-2.5 bg-card backdrop-blur-xl border-t border-border rounded-b-2xl">
               <div className="flex items-center gap-2 border border-border rounded-lg px-2.5 py-1.5">
                 <input
                   type="text"
@@ -159,8 +159,8 @@ export function Hero() {
 
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-semibold tracking-tight leading-[1.1]">
               Meet{" "}
-              <span 
-                className="bg-gradient-to-r from-primary via-ring to-primary bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient"
+              <span
+                className="bg-gradient-to-r from-white via-blue-200 to-white bg-[length:200%_auto] bg-clip-text text-transparent animate-gradient"
                 style={{
                   animation: "gradient 3s linear infinite",
                 }}
@@ -216,9 +216,9 @@ export function Hero() {
 
           {/* Right - Chat interface (tablet and desktop) */}
           <div className="relative hidden md:block">
-            <div className="bg-background border border-border rounded-2xl overflow-hidden shadow-2xl">
+            <div className="bg-card backdrop-blur-xl border border-border rounded-2xl overflow-hidden shadow-2xl">
               {/* Chat header */}
-              <div className="flex items-center gap-2 lg:gap-3 px-3 lg:px-5 py-2.5 lg:py-4 bg-background border-b border-border">
+              <div className="flex items-center gap-2 lg:gap-3 px-3 lg:px-5 py-2.5 lg:py-4 bg-card backdrop-blur-xl border-b border-border">
                 <div className="w-7 h-7 lg:w-10 lg:h-10 bg-primary rounded-lg lg:rounded-xl flex items-center justify-center">
                   <span className="text-primary-foreground font-bold text-[10px] lg:text-sm">A</span>
                 </div>
@@ -233,7 +233,7 @@ export function Hero() {
               </div>
 
               {/* Chat messages */}
-              <div ref={desktopMessagesRef} className="px-3 lg:px-5 py-3 lg:py-6 h-[180px] lg:h-[340px] flex flex-col gap-2 lg:gap-4 bg-background overflow-y-auto">
+              <div className="px-3 lg:px-5 py-3 lg:py-6 min-h-[180px] lg:min-h-[340px] flex flex-col gap-2 lg:gap-4 bg-card backdrop-blur-xl">
                 {chatMessages.slice(0, visibleMessages).map((msg, i) => (
                   <div
                     key={i}
@@ -271,7 +271,7 @@ export function Hero() {
               </div>
 
               {/* Chat input */}
-              <div className="px-3 lg:px-5 py-2.5 lg:py-4 bg-background border-t border-border rounded-b-2xl">
+              <div className="px-3 lg:px-5 py-2.5 lg:py-4 bg-card backdrop-blur-xl border-t border-border rounded-b-2xl">
                 <div className="flex items-center gap-2 border border-border rounded-lg lg:rounded-xl px-2.5 lg:px-4 py-1.5 lg:py-3">
                   <input
                     type="text"

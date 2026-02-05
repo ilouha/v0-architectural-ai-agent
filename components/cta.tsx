@@ -7,7 +7,7 @@ export function CTA() {
   return (
     <section className="py-16 lg:py-32 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="relative bg-primary text-primary-foreground rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-16 overflow-hidden">
+        <div className="relative bg-[rgb(55,90,140)] text-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-16 overflow-hidden shadow-2xl">
           {/* Background pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl" />

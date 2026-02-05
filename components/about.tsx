@@ -23,16 +23,16 @@ function GridAnimation() {
         <rect width="100%" height="100%" fill="url(#grid)" />
       </svg>
       
-      {/* Floating particles */}
+      {/* Floating particles - using deterministic positions based on index */}
       {[...Array(20)].map((_, i) => (
         <div
           key={i}
           className="absolute w-1 h-1 bg-primary-foreground/20 rounded-full animate-pulse"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 3}s`,
-            animationDuration: `${2 + Math.random() * 3}s`,
+            left: `${(i * 17 + 5) % 100}%`,
+            top: `${(i * 23 + 10) % 100}%`,
+            animationDelay: `${(i * 0.15) % 3}s`,
+            animationDuration: `${2 + (i * 0.15) % 3}s`,
           }}
         />
       ))}
@@ -82,7 +82,7 @@ export function About() {
   return (
     <section id="about" className="py-16 lg:py-32 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="relative bg-primary text-primary-foreground rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-16 overflow-hidden">
+        <div className="relative bg-[rgb(55,90,140)] text-white rounded-2xl lg:rounded-3xl p-6 sm:p-8 lg:p-16 overflow-hidden shadow-2xl">
           {/* Background pattern - same as CTA */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute top-0 left-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl" />

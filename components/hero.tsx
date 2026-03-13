@@ -3,6 +3,7 @@
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState, useRef } from "react"
+import { ArchitecturalBanner } from "./architectural-banner"
 
 function AnimatedNumber({ value, prefix = "", suffix = "", decimals = 0 }: { value: number; prefix?: string; suffix?: string; decimals?: number }) {
   const [count, setCount] = useState(0)
@@ -75,8 +76,11 @@ export function Hero() {
   }, [visibleMessages])
 
   return (
-    <section className="min-h-screen pt-16 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-32">
+    <section className="min-h-screen pt-16 overflow-hidden relative">
+      {/* Animated architectural background */}
+      <ArchitecturalBanner />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-32 relative z-10">
         {/* Mobile only: Badge and Chat first */}
         <div className="md:hidden flex flex-col gap-6 mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent rounded-full w-fit border border-ring/20">

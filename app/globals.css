@@ -4,31 +4,33 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  /* Soft warm white background */
   --background: rgb(255, 255, 255);
-  --foreground: rgb(34, 34, 38);
+  --foreground: rgb(34, 44, 57);
   --card: rgb(255, 255, 255);
-  --card-foreground: rgb(34, 34, 38);
+  --card-foreground: oklch(0.18 0.02 260);
   --popover: rgb(255, 255, 255);
-  --popover-foreground: rgb(34, 34, 38);
-  /* Warm muted brown-rose primary */
-  --primary: rgb(178, 132, 112);
-  --primary-foreground: rgb(255, 255, 255);
-  --secondary: rgb(245, 243, 240);
-  --secondary-foreground: rgb(34, 34, 38);
-  --muted: rgb(245, 243, 240);
-  --muted-foreground: rgb(120, 113, 108);
-  --accent: rgb(235, 230, 225);
-  --accent-foreground: rgb(50, 45, 42);
+  --popover-foreground: oklch(0.18 0.02 260);
+  /* Deep slate blue primary - trustworthy, professional */
+  --primary: rgb(45, 75, 118);
+  --primary-foreground: oklch(0.98 0.005 85);
+  --secondary: rgb(234, 237, 240);
+  --secondary-foreground: oklch(0.18 0.02 260);
+  --muted: rgb(234, 237, 240);
+  --muted-foreground: oklch(0.50 0.03 260);
+  /* Soft blue accent */
+  --accent: rgb(207, 215, 226);
+  --accent-foreground: oklch(0.25 0.06 260);
   --destructive: rgb(239, 68, 68);
-  --destructive-foreground: rgb(255, 255, 255);
-  --border: rgb(230, 225, 220);
-  --input: rgb(230, 225, 220);
-  --ring: rgb(178, 132, 112);
-  --chart-1: rgb(178, 132, 112);
-  --chart-2: rgb(162, 141, 168);
-  --chart-3: rgb(134, 176, 172);
-  --chart-4: rgb(200, 160, 130);
-  --chart-5: rgb(120, 100, 90);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: rgb(219, 223, 230);
+  --input: rgb(219, 223, 230);
+  --ring: rgb(45, 75, 118);
+  --chart-1: rgb(45, 75, 118);
+  --chart-2: rgb(71, 100, 158);
+  --chart-3: rgb(114, 148, 182);
+  --chart-4: rgb(153, 177, 194);
+  --chart-5: rgb(27, 48, 85);
   --radius: 0.75rem;
   --sidebar: rgb(246, 247, 248);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -124,12 +126,4 @@
   html, body {
     @apply bg-background text-foreground overflow-x-hidden;
   }
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }

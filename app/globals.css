@@ -4,46 +4,46 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Warm, bright, trustworthy palette for homeowners */
-  --background: #FAFAF8;
-  --foreground: #1A2B3C;
+  /* Blueprint-inspired palette — architectural blue */
+  --background: #F8FAFC;
+  --foreground: #0F1D2E;
   --card: #FFFFFF;
-  --card-foreground: #1A2B3C;
+  --card-foreground: #0F1D2E;
   --popover: #FFFFFF;
-  --popover-foreground: #1A2B3C;
-  /* Deep teal - trust, stability, real estate */
-  --primary: #0F766E;
+  --popover-foreground: #0F1D2E;
+  /* Blueprint blue — the hero color */
+  --primary: #1E5AA8;
   --primary-foreground: #FFFFFF;
-  /* Warm stone */
-  --secondary: #F5F0EB;
-  --secondary-foreground: #1A2B3C;
-  --muted: #F0ECE6;
-  --muted-foreground: #64748B;
-  /* Warm accent */
-  --accent: #FEF3C7;
-  --accent-foreground: #92400E;
+  /* Cool grey with blue undertone */
+  --secondary: #EEF2F7;
+  --secondary-foreground: #0F1D2E;
+  --muted: #E8EDF4;
+  --muted-foreground: #5A6E82;
+  /* Light blueprint wash */
+  --accent: #DBEAFE;
+  --accent-foreground: #1E3A5F;
   --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
-  --border: #E2DDD6;
-  --input: #E2DDD6;
-  --ring: #0F766E;
-  /* Warm amber for highlights */
+  --border: #D4DCE8;
+  --input: #D4DCE8;
+  --ring: #1E5AA8;
+  /* Amber for highlights / ratings */
   --amber: #D97706;
   --amber-light: #FEF3C7;
-  --chart-1: #0F766E;
-  --chart-2: #14B8A6;
-  --chart-3: #5EEAD4;
-  --chart-4: #99F6E4;
-  --chart-5: #0D9488;
+  --chart-1: #1E5AA8;
+  --chart-2: #3B82F6;
+  --chart-3: #60A5FA;
+  --chart-4: #93C5FD;
+  --chart-5: #2563EB;
   --radius: 0.375rem;
-  --sidebar: #F5F0EB;
-  --sidebar-foreground: #1A2B3C;
-  --sidebar-primary: #0F766E;
+  --sidebar: #EEF2F7;
+  --sidebar-foreground: #0F1D2E;
+  --sidebar-primary: #1E5AA8;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #F0ECE6;
-  --sidebar-accent-foreground: #1A2B3C;
-  --sidebar-border: #E2DDD6;
-  --sidebar-ring: #0F766E;
+  --sidebar-accent: #E8EDF4;
+  --sidebar-accent-foreground: #0F1D2E;
+  --sidebar-border: #D4DCE8;
+  --sidebar-ring: #1E5AA8;
 }
 
 @theme inline {
@@ -97,16 +97,19 @@
   html, body {
     @apply bg-background text-foreground overflow-x-hidden;
   }
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-/* Gradient text - warm teal to emerald */
+/* Gradient text — blueprint blue shimmer */
 .gradient-text {
-  background: linear-gradient(135deg, #0F766E, #14B8A6, #0D9488);
-  background-size: 200% 200%;
+  background: linear-gradient(135deg, #1E5AA8, #3B82F6, #60A5FA, #3B82F6, #1E5AA8);
+  background-size: 300% 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradient-shift 4s ease infinite;
+  animation: gradient-shift 6s ease infinite;
 }
 
 @keyframes gradient-shift {
@@ -114,13 +117,36 @@
   50% { background-position: 100% 50%; }
 }
 
-/* Warm selection */
+/* Selection */
 ::selection {
-  background: rgba(15, 118, 110, 0.15);
-  color: #1A2B3C;
+  background: rgba(30, 90, 168, 0.15);
+  color: #0F1D2E;
 }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
+/* Depth system — reusable card shadow classes */
+.card-shadow {
+  box-shadow:
+    0 0 0 1px rgba(30, 90, 168, 0.04),
+    0 1px 2px rgba(30, 90, 168, 0.04),
+    0 4px 16px rgba(30, 90, 168, 0.06);
+}
+.card-shadow-hover {
+  box-shadow:
+    0 0 0 1px rgba(30, 90, 168, 0.06),
+    0 2px 4px rgba(30, 90, 168, 0.05),
+    0 12px 32px rgba(30, 90, 168, 0.10);
+}
+.card-shadow-lg {
+  box-shadow:
+    0 0 0 1px rgba(30, 90, 168, 0.04),
+    0 2px 4px rgba(30, 90, 168, 0.04),
+    0 8px 24px rgba(30, 90, 168, 0.07),
+    0 24px 48px rgba(30, 90, 168, 0.06);
+}
+.card-shadow-lg-hover {
+  box-shadow:
+    0 0 0 1px rgba(30, 90, 168, 0.06),
+    0 4px 8px rgba(30, 90, 168, 0.06),
+    0 16px 40px rgba(30, 90, 168, 0.10),
+    0 32px 64px rgba(30, 90, 168, 0.08);
 }

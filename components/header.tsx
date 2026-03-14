@@ -16,28 +16,28 @@ export function Header() {
   }, [])
 
   return (
-    <header className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 rounded-lg ${
+    <header className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 ${
       scrolled || isMenuOpen
-        ? "bg-white backdrop-blur-xl border border-border shadow-lg shadow-black/5 rounded-lg"
-        : ""
+        ? "bg-white/90 backdrop-blur-xl border border-border/60 rounded-full shadow-[0_1px_3px_rgba(30,90,168,0.06),0_8px_24px_rgba(30,90,168,0.06)]"
+        : "border border-transparent rounded-full"
     }`}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-14">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+        <div className="flex items-center justify-between h-12">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center transition-transform group-hover:scale-105">
-              <span className="text-white font-bold text-sm font-[var(--font-heading)]">A</span>
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-7 h-7 bg-primary rounded-full flex items-center justify-center transition-transform group-hover:scale-105">
+              <span className="text-white font-bold text-xs font-[var(--font-heading)]">A</span>
             </div>
-            <span className="font-semibold text-lg tracking-tight text-foreground font-[var(--font-heading)]">archie</span>
+            <span className="font-semibold text-[15px] tracking-tight text-foreground font-[var(--font-heading)]">archie</span>
           </Link>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-0.5">
             {["How it works", "Capabilities", "About"].map((item) => (
               <Link
                 key={item}
                 href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-sm text-muted-foreground hover:text-foreground px-3 py-2 rounded-lg hover:bg-primary/5 transition-all duration-200"
+                className="text-[13px] text-muted-foreground hover:text-foreground px-3 py-1.5 rounded-full hover:bg-primary/5 transition-colors duration-150"
               >
                 {item}
               </Link>
@@ -45,13 +45,13 @@ export function Header() {
           </nav>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+          <div className="hidden md:flex items-center gap-2">
+            <Button variant="ghost" size="sm" className="text-[13px] text-muted-foreground hover:text-foreground rounded-full h-8">
               Log in
             </Button>
-            <Button size="sm" className="gap-1.5">
+            <Button size="sm" className="gap-1.5 rounded-full h-8 text-[13px]">
               Get started
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3 h-3" />
             </Button>
           </div>
 
@@ -81,10 +81,10 @@ export function Header() {
                 </Link>
               ))}
               <div className="flex gap-2 pt-4 mt-2 border-t border-border/50">
-                <Button variant="outline" size="sm" className="flex-1">
+                <Button variant="outline" size="sm" className="flex-1 rounded-full">
                   Log in
                 </Button>
-                <Button size="sm" className="flex-1 gap-1.5">
+                <Button size="sm" className="flex-1 gap-1.5 rounded-full">
                   Get started
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Button>

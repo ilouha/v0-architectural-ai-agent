@@ -22,13 +22,13 @@ function FolderStructureVisual() {
   ]
 
   return (
-    <div className="bg-white border border-border rounded-lg p-6 shadow-lg shadow-black/5 h-full">
+    <div className="bg-white rounded-xl p-6 h-full card-shadow-lg border border-white/80">
       <div className="flex items-center justify-between mb-6">
         <div>
           <p className="text-sm font-medium text-foreground font-[var(--font-heading)]">Project Folders</p>
           <p className="text-xs text-muted-foreground">Auto-organized structure</p>
         </div>
-        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+        <div className="w-8 h-8 bg-primary/8 rounded-lg flex items-center justify-center">
           <Folder className="w-4 h-4 text-primary" />
         </div>
       </div>
@@ -41,7 +41,7 @@ function FolderStructureVisual() {
               <ChevronRight className={`w-3 h-3 text-muted-foreground transition-transform ${folder.isOpen ? "rotate-90" : ""}`} />
             </div>
             {folder.isOpen && folder.children && (
-              <div className="ml-4 pl-3 border-l border-border space-y-1 mt-1">
+              <div className="ml-4 pl-3 border-l border-border/50 space-y-1 mt-1">
                 {folder.children.map((child, j) => (
                   <div key={j} className="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-secondary cursor-pointer">
                     <child.icon className="w-3.5 h-3.5 text-muted-foreground" />
@@ -67,13 +67,13 @@ function CostTemplateVisual() {
   const total = items.reduce((sum, item) => sum + item.amount, 0)
 
   return (
-    <div className="bg-white border border-border rounded-lg p-6 shadow-lg shadow-black/5 h-full">
+    <div className="bg-white rounded-xl p-6 h-full card-shadow-lg border border-white/80">
       <div className="flex items-center justify-between mb-6">
         <div>
           <p className="text-sm font-medium text-foreground font-[var(--font-heading)]">Cost Breakdown</p>
           <p className="text-xs text-muted-foreground">Pre-built budget template</p>
         </div>
-        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+        <div className="w-8 h-8 bg-primary/8 rounded-lg flex items-center justify-center">
           <DollarSign className="w-4 h-4 text-primary" />
         </div>
       </div>
@@ -84,16 +84,16 @@ function CostTemplateVisual() {
               <span className="text-xs text-muted-foreground">{item.category}</span>
               <span className="text-xs font-medium text-foreground">${item.amount.toLocaleString()}</span>
             </div>
-            <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
+            <div className="w-full h-1.5 bg-secondary rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-primary to-primary/60 rounded-full transition-all duration-700"
+                className="h-full bg-primary/30 rounded-full transition-all duration-700"
                 style={{ width: `${item.percentage}%` }}
               />
             </div>
           </div>
         ))}
       </div>
-      <div className="pt-4 border-t border-border flex items-center justify-between">
+      <div className="pt-4 border-t border-border/50 flex items-center justify-between">
         <span className="text-sm font-medium text-foreground">Total Budget</span>
         <span className="text-lg font-semibold text-foreground font-[var(--font-heading)]">${total.toLocaleString()}</span>
       </div>
@@ -110,21 +110,21 @@ function ContactListVisual() {
   ]
 
   return (
-    <div className="bg-white border border-border rounded-lg p-6 shadow-lg shadow-black/5 h-full">
+    <div className="bg-white rounded-xl p-6 h-full card-shadow-lg border border-white/80">
       <div className="flex items-center justify-between mb-6">
         <div>
           <p className="text-sm font-medium text-foreground font-[var(--font-heading)]">Contractor List</p>
           <p className="text-xs text-muted-foreground">Vetted professionals</p>
         </div>
-        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+        <div className="w-8 h-8 bg-primary/8 rounded-lg flex items-center justify-center">
           <Users className="w-4 h-4 text-primary" />
         </div>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-2">
         {contacts.map((contact, i) => (
-          <div key={i} className="flex items-center gap-3 p-3 bg-secondary/50 border border-border rounded-md hover:bg-secondary transition-colors cursor-pointer">
-            <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-              <Building2 className="w-4 h-4 text-primary" />
+          <div key={i} className="flex items-center gap-3 p-2.5 rounded-md hover:bg-secondary/80 transition-colors cursor-pointer">
+            <div className="w-8 h-8 bg-primary/8 rounded-lg flex items-center justify-center flex-shrink-0">
+              <Building2 className="w-3.5 h-3.5 text-primary" />
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
@@ -141,12 +141,12 @@ function ContactListVisual() {
                 )}
               </div>
             </div>
-            <div className="flex gap-1.5">
-              <button className="w-7 h-7 rounded-lg bg-white border border-border flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-colors cursor-pointer">
-                <Phone className="w-3.5 h-3.5" />
+            <div className="flex gap-1">
+              <button className="w-7 h-7 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors cursor-pointer">
+                <Phone className="w-3 h-3" />
               </button>
-              <button className="w-7 h-7 rounded-lg bg-white border border-border flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-colors cursor-pointer">
-                <Mail className="w-3.5 h-3.5" />
+              <button className="w-7 h-7 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors cursor-pointer">
+                <Mail className="w-3 h-3" />
               </button>
             </div>
           </div>
@@ -171,21 +171,21 @@ function FilesContractsVisual() {
   }
 
   return (
-    <div className="bg-white border border-border rounded-lg p-6 shadow-lg shadow-black/5 h-full">
+    <div className="bg-white rounded-xl p-6 h-full card-shadow-lg border border-white/80">
       <div className="flex items-center justify-between mb-6">
         <div>
           <p className="text-sm font-medium text-foreground font-[var(--font-heading)]">Files & Contracts</p>
           <p className="text-xs text-muted-foreground">Everything in one place</p>
         </div>
-        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+        <div className="w-8 h-8 bg-primary/8 rounded-lg flex items-center justify-center">
           <FileSignature className="w-4 h-4 text-primary" />
         </div>
       </div>
-      <div className="space-y-2">
+      <div className="space-y-1.5">
         {files.map((file, i) => (
-          <div key={i} className="flex items-center gap-3 p-3 bg-secondary/50 border border-border rounded-md hover:bg-secondary transition-colors cursor-pointer group">
-            <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-              <FileText className="w-4 h-4 text-primary" />
+          <div key={i} className="flex items-center gap-3 p-2.5 rounded-md hover:bg-secondary/80 transition-colors cursor-pointer group">
+            <div className="w-8 h-8 bg-primary/8 rounded-lg flex items-center justify-center flex-shrink-0">
+              <FileText className="w-3.5 h-3.5 text-primary" />
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium text-foreground truncate">{file.name}</p>
@@ -194,21 +194,21 @@ function FilesContractsVisual() {
                 <span className="text-xs text-muted-foreground">{file.date}</span>
               </div>
             </div>
-            <div className={`px-2 py-1 rounded-md text-xs font-medium ${statusColors[file.status].bg} ${statusColors[file.status].text}`}>
+            <div className={`px-2 py-0.5 rounded-md text-xs font-medium ${statusColors[file.status].bg} ${statusColors[file.status].text}`}>
               {file.status}
             </div>
             <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-              <button className="w-7 h-7 rounded-lg bg-white border border-border flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-colors cursor-pointer">
-                <Eye className="w-3.5 h-3.5" />
+              <button className="w-7 h-7 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors cursor-pointer">
+                <Eye className="w-3 h-3" />
               </button>
-              <button className="w-7 h-7 rounded-lg bg-white border border-border flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-colors cursor-pointer">
-                <Download className="w-3.5 h-3.5" />
+              <button className="w-7 h-7 rounded-lg bg-secondary flex items-center justify-center hover:bg-primary hover:text-white transition-colors cursor-pointer">
+                <Download className="w-3 h-3" />
               </button>
             </div>
           </div>
         ))}
       </div>
-      <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
+      <div className="mt-4 pt-4 border-t border-border/50 flex items-center justify-between">
         <span className="text-xs text-muted-foreground">4 documents</span>
         <span className="text-xs text-primary font-medium cursor-pointer hover:underline">View all</span>
       </div>
@@ -229,19 +229,22 @@ export function Templates() {
   const prevCard = () => setActiveIndex((prev) => (prev - 1 + templates.length) % templates.length)
 
   return (
-    <section className="py-24 lg:py-40 overflow-hidden relative">
+    <section className="py-24 lg:py-36 overflow-hidden relative">
+      {/* Section gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/30 to-transparent" />
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="text-center mb-12 lg:mb-20">
-          <p className="text-xs font-medium tracking-widest text-primary uppercase mb-4 font-[var(--font-heading)]">
+        <div className="text-center mb-12 lg:mb-16">
+          <p className="text-sm font-medium text-primary mb-3 font-[var(--font-heading)]">
             Ready to use
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-4 text-foreground font-[var(--font-heading)]">
+          <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-tight mb-4 text-foreground font-[var(--font-heading)] leading-[1.1]">
             Industry knowledge{" "}
             <span className="text-muted-foreground">curated by professionals</span>
           </h2>
-          <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Start organized from day one. Our templates are designed by construction professionals
+          <p className="text-sm text-muted-foreground max-w-xl mx-auto leading-relaxed">
+            Start organized from day one. Templates designed by construction professionals
             to help you track costs, manage contacts, and keep everything in one place.
           </p>
         </div>
@@ -277,38 +280,38 @@ export function Templates() {
         </div>
 
         {/* Navigation controls */}
-        <div className="flex items-center justify-center gap-4 mb-12">
-          <Button variant="outline" size="icon" onClick={prevCard} className="w-10 h-10 rounded-full">
+        <div className="flex items-center justify-center gap-4 mb-10">
+          <Button variant="outline" size="icon" onClick={prevCard} className="w-9 h-9 rounded-full">
             <ChevronLeft className="w-4 h-4" />
           </Button>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5">
             {templates.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  index === activeIndex ? "w-8 bg-primary" : "w-2 bg-border"
+                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  index === activeIndex ? "w-6 bg-primary" : "w-1.5 bg-foreground/10"
                 }`}
               />
             ))}
           </div>
-          <Button variant="outline" size="icon" onClick={nextCard} className="w-10 h-10 rounded-full">
+          <Button variant="outline" size="icon" onClick={nextCard} className="w-9 h-9 rounded-full">
             <ChevronRight className="w-4 h-4" />
           </Button>
         </div>
 
         {/* Current card title */}
-        <div className="text-center mb-12">
-          <p className="text-lg font-semibold text-foreground font-[var(--font-heading)]">{templates[activeIndex].title}</p>
-          <p className="text-sm text-muted-foreground">{templates[activeIndex].description}</p>
+        <div className="text-center mb-10">
+          <p className="text-[15px] font-semibold text-foreground font-[var(--font-heading)]">{templates[activeIndex].title}</p>
+          <p className="text-sm text-muted-foreground mt-0.5">{templates[activeIndex].description}</p>
         </div>
 
         {/* Features list */}
-        <div className="grid grid-cols-2 lg:flex lg:flex-wrap items-center justify-center gap-x-8 gap-y-4 pt-8 border-t border-border">
+        <div className="grid grid-cols-2 lg:flex lg:flex-wrap items-center justify-center gap-x-8 gap-y-3 pt-8 border-t border-border/40">
           {["Instant setup", "Industry-standard", "Customizable", "Email sync"].map((feature, i) => (
             <div key={i} className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                <Check className="w-3 h-3 text-primary" />
+              <div className="w-4 h-4 rounded-full bg-primary/8 flex items-center justify-center flex-shrink-0">
+                <Check className="w-2.5 h-2.5 text-primary" />
               </div>
               <span className="text-sm text-muted-foreground">{feature}</span>
             </div>

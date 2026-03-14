@@ -9,18 +9,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-primary text-white hover:bg-primary/90 shadow-md shadow-primary/15 hover:shadow-lg hover:shadow-primary/20 transition-all',
+        default: 'bg-primary text-white hover:bg-primary/90 shadow-[0_1px_2px_rgba(30,90,168,0.2),0_4px_12px_rgba(30,90,168,0.15)] hover:shadow-[0_2px_4px_rgba(30,90,168,0.25),0_8px_20px_rgba(30,90,168,0.2)] hover:-translate-y-[1px] transition-all',
         destructive:
-          'bg-destructive text-white hover:bg-destructive/90 shadow-md shadow-destructive/15',
+          'bg-destructive text-white hover:bg-destructive/90 shadow-[0_1px_2px_rgba(220,38,38,0.2),0_4px_12px_rgba(220,38,38,0.15)]',
         outline:
-          'border border-border bg-white hover:bg-secondary hover:border-primary/30 transition-all',
+          'border border-border bg-white hover:bg-secondary/80 shadow-[0_1px_2px_rgba(30,90,168,0.04)] hover:shadow-[0_1px_3px_rgba(30,90,168,0.08),0_4px_12px_rgba(30,90,168,0.06)] hover:-translate-y-[1px] transition-all',
         secondary:
-          'bg-secondary text-secondary-foreground hover:bg-muted transition-all',
+          'bg-secondary text-secondary-foreground hover:bg-muted transition-colors',
         ghost:
-          'hover:bg-secondary hover:text-foreground',
+          'hover:bg-secondary hover:text-foreground transition-colors',
         link: 'text-primary underline-offset-4 hover:underline',
         amber:
-          'bg-amber text-white hover:bg-amber/90 shadow-md shadow-amber/15 hover:shadow-lg hover:shadow-amber/20 transition-all',
+          'bg-amber text-white hover:bg-amber/90 shadow-[0_1px_2px_rgba(217,119,6,0.2),0_4px_12px_rgba(217,119,6,0.15)]',
       },
       size: {
         default: 'h-10 px-5 py-2 has-[>svg]:px-3',

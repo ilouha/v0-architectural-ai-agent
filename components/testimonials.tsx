@@ -25,48 +25,49 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-24 lg:py-40 relative overflow-hidden bg-white">
+    <section className="py-24 lg:py-36 relative overflow-hidden">
+      {/* Subtle gradient */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(30,90,168,0.025),transparent_70%)]" />
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="max-w-2xl mb-16">
-          <p className="text-xs font-medium tracking-widest text-primary uppercase mb-4 font-[var(--font-heading)]">
+        <div className="max-w-2xl mb-14">
+          <p className="text-sm font-medium text-primary mb-3 font-[var(--font-heading)]">
             Testimonials
           </p>
-          <h2 className="text-3xl lg:text-5xl font-bold tracking-tight mb-4 text-foreground font-[var(--font-heading)]">
+          <h2 className="text-3xl lg:text-[2.75rem] font-bold tracking-tight mb-4 text-foreground font-[var(--font-heading)] leading-[1.1]">
             Trusted by{" "}
             <span className="text-muted-foreground">homeowners</span>
           </h2>
           <div className="flex items-center gap-2">
             <div className="flex">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-amber-500 text-amber-500" />
+                <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
               ))}
             </div>
-            <span className="text-muted-foreground">4.9 average rating</span>
+            <span className="text-sm text-muted-foreground">4.9 average rating</span>
           </div>
         </div>
 
         {/* Testimonials grid */}
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-3 gap-4">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.author}
-              className="bg-background p-6 rounded-lg border border-border hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 cursor-pointer"
+              className="bg-white p-6 rounded-xl border border-border/40 card-shadow hover:card-shadow-hover hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="flex mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
-                ))}
-              </div>
-              <blockquote className="text-foreground leading-relaxed mb-6">
-                {`"${testimonial.quote}"`}
+              {/* Decorative quote */}
+              <span className="text-4xl leading-none text-primary/[0.12] font-serif select-none">{'"'}</span>
+
+              <blockquote className="text-sm text-foreground leading-relaxed mt-1 mb-6">
+                {testimonial.quote}
               </blockquote>
-              <div className="flex items-center justify-between pt-4 border-t border-border">
+              <div className="flex items-center justify-between pt-4 border-t border-border/40">
                 <div>
                   <p className="font-medium text-sm text-foreground">{testimonial.author}</p>
                   <p className="text-xs text-muted-foreground">{testimonial.location}</p>
                 </div>
-                <span className="text-xs font-medium text-primary px-2.5 py-1 bg-primary/10 rounded-md">
+                <span className="text-xs text-muted-foreground px-2 py-0.5 bg-secondary rounded-md">
                   {testimonial.role}
                 </span>
               </div>

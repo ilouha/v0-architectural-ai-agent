@@ -12,37 +12,25 @@ const traits = [
 
 export function About() {
   return (
-    <section id="about" className="py-24 lg:py-40 overflow-hidden bg-secondary/50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="relative rounded-lg p-8 lg:p-16 overflow-hidden bg-primary/5 border border-primary/15 text-foreground">
-          {/* Background effects */}
-          <div className="absolute inset-0">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/3 rounded-full blur-[120px]" />
-          </div>
+    <section id="about" className="py-24 lg:py-36 overflow-hidden relative">
+      {/* Gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/40 to-secondary/20" />
 
-          {/* Grid pattern */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-[0.03]">
-            <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                  <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="1" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#grid)" />
-            </svg>
-          </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="relative rounded-2xl p-8 lg:p-14 overflow-hidden bg-white text-foreground card-shadow-lg">
+          {/* Subtle inner gradient glow */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_30%_20%,rgba(30,90,168,0.03),transparent_60%)] pointer-events-none" />
 
-          <div className="relative grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="relative grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left - Visual */}
             <div className="relative">
-              <div className="aspect-square bg-white/60 rounded-lg p-8 lg:p-12 flex flex-col justify-between border border-border">
+              <div className="aspect-square bg-gradient-to-br from-secondary/60 to-secondary/30 rounded-xl p-8 lg:p-10 flex flex-col justify-between">
                 {/* Archie avatar */}
                 <div>
-                  <div className="w-16 lg:w-20 h-16 lg:h-20 bg-primary rounded-full flex items-center justify-center mb-6">
-                    <span className="text-white font-bold text-2xl lg:text-3xl font-[var(--font-heading)]">A</span>
+                  <div className="w-14 lg:w-16 h-14 lg:h-16 bg-primary rounded-full flex items-center justify-center mb-6 shadow-[0_4px_16px_rgba(30,90,168,0.25)]">
+                    <span className="text-white font-bold text-xl lg:text-2xl font-[var(--font-heading)]">A</span>
                   </div>
-                  <p className="text-xl lg:text-3xl font-semibold leading-tight max-w-sm text-foreground font-[var(--font-heading)]">
+                  <p className="text-xl lg:text-2xl font-normal leading-snug max-w-sm text-foreground/80 font-[var(--font-heading)]">
                     {'"'}I{"'"}m here to make your project less stressful, not more complicated.{'"'}
                   </p>
                 </div>
@@ -50,7 +38,7 @@ export function About() {
                 {/* Personality tags */}
                 <div className="flex flex-wrap gap-2 pt-8">
                   {["Knowledgeable", "Patient", "Practical", "Honest"].map((tag) => (
-                    <span key={tag} className="px-4 py-2 bg-primary/10 border border-primary/15 rounded-full text-sm font-medium text-foreground">
+                    <span key={tag} className="px-3 py-1.5 bg-white rounded-full text-xs font-medium text-foreground/70 shadow-[0_1px_3px_rgba(30,90,168,0.06)]">
                       {tag}
                     </span>
                   ))}
@@ -59,50 +47,50 @@ export function About() {
             </div>
 
             {/* Right - Content */}
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-7">
               <div>
-                <p className="text-xs font-medium tracking-widest text-primary uppercase mb-3 font-[var(--font-heading)]">
+                <p className="text-sm font-medium text-primary mb-3 font-[var(--font-heading)]">
                   Meet Archie
                 </p>
-                <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-6 text-foreground font-[var(--font-heading)]">
+                <h2 className="text-3xl lg:text-[2.5rem] font-bold tracking-tight mb-5 text-foreground font-[var(--font-heading)] leading-[1.1]">
                   Not just smart. <span className="gradient-text">Genuinely helpful.</span>
                 </h2>
-                <p className="text-base text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   We built Archie because everyone deserves access to expert construction guidance.
                   Renovations are among the biggest investments you{"'"}ll make, yet most homeowners
                   navigate them without professional support. Archie changes that.
                 </p>
               </div>
 
-              <ul className="flex flex-col gap-3">
+              <ul className="flex flex-col gap-2.5">
                 {traits.map((trait) => (
                   <li key={trait} className="flex items-start gap-3">
-                    <div className="w-5 h-5 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-primary" />
+                    <div className="w-4 h-4 bg-primary/8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-2.5 h-2.5 text-primary" />
                     </div>
-                    <span className="text-muted-foreground">{trait}</span>
+                    <span className="text-sm text-muted-foreground">{trait}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="grid grid-cols-3 gap-8 pt-6 border-t border-border">
+              <div className="grid grid-cols-3 gap-8 pt-6 border-t border-border/50">
                 <div>
-                  <p className="text-3xl font-bold text-foreground font-[var(--font-heading)]">24/7</p>
-                  <p className="text-sm text-muted-foreground">Always available</p>
+                  <p className="text-2xl font-semibold text-foreground font-[var(--font-heading)]">24/7</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">Always available</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-foreground font-[var(--font-heading)]">{"<"}15s</p>
-                  <p className="text-sm text-muted-foreground">Response time</p>
+                  <p className="text-2xl font-semibold text-foreground font-[var(--font-heading)]">{"<"}15s</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">Response time</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-foreground font-[var(--font-heading)]">98%</p>
-                  <p className="text-sm text-muted-foreground">Satisfaction</p>
+                  <p className="text-2xl font-semibold text-foreground font-[var(--font-heading)]">98%</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">Satisfaction</p>
                 </div>
               </div>
 
-              <Button size="lg" className="w-fit gap-2">
+              <Button size="lg" className="w-fit gap-2 h-11 text-sm rounded-lg">
                 Start a conversation
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </Button>
             </div>
           </div>

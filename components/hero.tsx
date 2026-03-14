@@ -46,71 +46,71 @@ function AnimatedNumber({ value, prefix = "", suffix = "", decimals = 0 }: { val
 export function Hero() {
   return (
     <section className="relative min-h-screen pt-24 overflow-hidden">
-      {/* Warm background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-secondary/80 via-background to-background" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-amber-light/50 rounded-full blur-[100px] pointer-events-none" />
+      {/* Radial spotlight gradient — light source from top center */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(30,90,168,0.08),transparent_70%)]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-secondary/50 via-background to-background" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 lg:py-24 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left content */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-10">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full w-fit">
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-xs font-medium text-primary">Trusted by 500+ homeowners</span>
-            </div>
+            <p className="text-sm text-muted-foreground">
+              <span className="inline-block w-1.5 h-1.5 bg-primary rounded-full mr-2 relative top-[-1px]" />
+              Trusted by 500+ homeowners
+            </p>
 
-            {/* Mobile/Tablet blueprint animation - above the title */}
+            {/* Mobile/Tablet blueprint animation */}
             <div className="lg:hidden w-full aspect-square max-w-[340px] sm:max-w-[400px] mx-auto overflow-hidden">
               <ArchieBlueprintAnimation />
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-foreground font-[var(--font-heading)]">
+            <h1 className="text-4xl sm:text-5xl lg:text-[4.25rem] font-bold tracking-tight leading-[0.95] text-foreground font-[var(--font-heading)]">
               Meet{" "}
               <span className="gradient-text">Archie</span>
-              , your project <span className="whitespace-nowrap">co-pilot</span>
+              , your project{" "}
+              <span className="whitespace-nowrap">co-pilot</span>
             </h1>
 
-            <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
-              Expert guidance for your renovation or construction project. From permits and zoning to budgets and contractor coordination - Archie has your back.
+            <p className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed">
+              Expert guidance for your renovation or construction project. From permits and zoning to budgets and contractor coordination.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button size="lg" className="h-13 px-8 gap-2 text-base">
+              <Button size="lg" className="h-11 px-7 gap-2 text-sm rounded-lg">
                 Start building with Archie
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </Button>
-              <Button variant="outline" size="lg" className="h-13 px-8 gap-2 text-base">
-                <Play className="w-4 h-4" />
+              <Button variant="outline" size="lg" className="h-11 px-7 gap-2 text-sm rounded-lg">
+                <Play className="w-3.5 h-3.5" />
                 Watch demo
               </Button>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border/60">
               <div>
-                <p className="text-3xl lg:text-5xl font-bold tracking-tight text-foreground font-[var(--font-heading)]">
+                <p className="text-2xl lg:text-4xl font-semibold tracking-tight text-foreground font-[var(--font-heading)]">
                   <AnimatedNumber value={500} suffix="+" />
                 </p>
-                <p className="text-sm text-muted-foreground mt-1">Projects guided</p>
+                <p className="text-xs text-muted-foreground mt-1.5">Projects guided</p>
               </div>
-              <div className="border-l border-border pl-6">
-                <p className="text-3xl lg:text-5xl font-bold tracking-tight text-foreground font-[var(--font-heading)]">
+              <div className="border-l border-border/60 pl-6">
+                <p className="text-2xl lg:text-4xl font-semibold tracking-tight text-foreground font-[var(--font-heading)]">
                   <AnimatedNumber value={15} suffix="%" />
                 </p>
-                <p className="text-sm text-muted-foreground mt-1">Costs saved</p>
+                <p className="text-xs text-muted-foreground mt-1.5">Costs saved</p>
               </div>
-              <div className="border-l border-border pl-6">
-                <p className="text-3xl lg:text-5xl font-bold tracking-tight text-foreground font-[var(--font-heading)]">
+              <div className="border-l border-border/60 pl-6">
+                <p className="text-2xl lg:text-4xl font-semibold tracking-tight text-foreground font-[var(--font-heading)]">
                   <AnimatedNumber value={4.9} decimals={1} />
                 </p>
-                <p className="text-sm text-muted-foreground mt-1">User rating</p>
+                <p className="text-xs text-muted-foreground mt-1.5">User rating</p>
               </div>
             </div>
           </div>
 
-          {/* Right - Blueprint animation (desktop only) */}
+          {/* Right - Blueprint animation (desktop only) — clean, no extra blobs */}
           <div className="relative hidden lg:block">
             <div className="w-[156%] aspect-square max-w-[780px] -mr-[28%]">
               <ArchieBlueprintAnimation />
@@ -119,18 +119,20 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Trusted by section */}
-      <div className="relative z-10 border-t border-border mt-12 lg:mt-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-          <p className="text-xs font-medium tracking-widest text-muted-foreground uppercase text-center mb-8">
-            Trusted by homeowners and professionals
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
-            {["Zillow", "Houzz", "HomeAdvisor", "Angi", "BuilderTrend"].map((brand) => (
-              <span key={brand} className="text-lg font-semibold text-border font-[var(--font-heading)] tracking-tight">
-                {brand}
-              </span>
-            ))}
+      {/* Trusted by section — slight inset feel */}
+      <div className="relative z-10 mt-12 lg:mt-20">
+        <div className="border-t border-border/40 bg-gradient-to-b from-secondary/30 to-transparent">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+            <p className="text-xs text-muted-foreground text-center mb-6 tracking-wide">
+              Trusted by homeowners and professionals
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-6">
+              {["Zillow", "Houzz", "HomeAdvisor", "Angi", "BuilderTrend"].map((brand) => (
+                <span key={brand} className="text-xl font-semibold text-foreground/25 font-[var(--font-heading)] tracking-tight">
+                  {brand}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -25,18 +25,21 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-24 lg:py-32 bg-secondary">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="py-24 lg:py-40 relative overflow-hidden bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
         <div className="max-w-2xl mb-16">
-          <p className="text-sm font-medium text-muted-foreground mb-3">Testimonials</p>
-          <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight mb-4">
-            Trusted by homeowners
+          <p className="text-xs font-medium tracking-widest text-primary uppercase mb-4 font-[var(--font-heading)]">
+            Testimonials
+          </p>
+          <h2 className="text-3xl lg:text-5xl font-bold tracking-tight mb-4 text-foreground font-[var(--font-heading)]">
+            Trusted by{" "}
+            <span className="text-muted-foreground">homeowners</span>
           </h2>
           <div className="flex items-center gap-2">
             <div className="flex">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-foreground text-foreground" />
+                <Star key={i} className="w-5 h-5 fill-amber-500 text-amber-500" />
               ))}
             </div>
             <span className="text-muted-foreground">4.9 average rating</span>
@@ -44,15 +47,15 @@ export function Testimonials() {
         </div>
 
         {/* Testimonials grid */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-5">
           {testimonials.map((testimonial) => (
-            <div 
+            <div
               key={testimonial.author}
-              className="bg-background p-6 rounded-2xl border border-border"
+              className="bg-background p-6 rounded-lg border border-border hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 cursor-pointer"
             >
               <div className="flex mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-foreground text-foreground" />
+                  <Star key={i} className="w-4 h-4 fill-amber-500 text-amber-500" />
                 ))}
               </div>
               <blockquote className="text-foreground leading-relaxed mb-6">
@@ -60,10 +63,10 @@ export function Testimonials() {
               </blockquote>
               <div className="flex items-center justify-between pt-4 border-t border-border">
                 <div>
-                  <p className="font-medium text-sm">{testimonial.author}</p>
+                  <p className="font-medium text-sm text-foreground">{testimonial.author}</p>
                   <p className="text-xs text-muted-foreground">{testimonial.location}</p>
                 </div>
-                <span className="text-xs font-medium text-muted-foreground px-2.5 py-1 bg-secondary rounded-md">
+                <span className="text-xs font-medium text-primary px-2.5 py-1 bg-primary/10 rounded-md">
                   {testimonial.role}
                 </span>
               </div>

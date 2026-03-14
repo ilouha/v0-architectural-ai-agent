@@ -43,19 +43,24 @@ const capabilities = [
 
 export function Services() {
   return (
-    <section id="capabilities" className="py-16 lg:py-32 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="capabilities" className="py-24 lg:py-40 relative overflow-hidden bg-white">
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/3 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-6 mb-10 lg:mb-16">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-6 mb-12 lg:mb-20">
           <div className="max-w-2xl">
-            <p className="text-xs sm:text-sm font-medium text-muted-foreground mb-2 lg:mb-3">Capabilities</p>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight">
-              Agents that work for you as an infinite team
+            <p className="text-xs font-medium tracking-widest text-primary uppercase mb-4 font-[var(--font-heading)]">
+              Capabilities
+            </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground font-[var(--font-heading)]">
+              Agents that work for you{" "}
+              <span className="text-muted-foreground">as an infinite team</span>
             </h2>
           </div>
-          <a 
-            href="#" 
-            className="inline-flex items-center gap-2 text-sm font-medium hover:gap-3 transition-all"
+          <a
+            href="#"
+            className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all cursor-pointer"
           >
             View all features
             <ArrowRight className="w-4 h-4" />
@@ -63,22 +68,22 @@ export function Services() {
         </div>
 
         {/* Capabilities grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
           {capabilities.map((capability) => (
-            <div 
+            <div
               key={capability.title}
-              className="group p-4 lg:p-6 bg-secondary rounded-2xl hover:bg-secondary/80 transition-colors"
+              className="group p-6 bg-background border border-border rounded-lg hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 cursor-pointer"
             >
-              <div className="w-9 h-9 lg:w-10 lg:h-10 bg-accent rounded-lg flex items-center justify-center mb-4 lg:mb-5 border border-ring/20 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                <capability.icon className="w-4 h-4 lg:w-5 lg:h-5" />
+              <div className="w-11 h-11 bg-primary/10 rounded-md flex items-center justify-center mb-5 group-hover:bg-primary/15 transition-colors">
+                <capability.icon className="w-5 h-5 text-primary" />
               </div>
-              <h3 className="text-base lg:text-lg font-semibold mb-2">{capability.title}</h3>
-              <p className="text-xs lg:text-sm text-muted-foreground leading-relaxed mb-3 lg:mb-4">{capability.description}</p>
+              <h3 className="text-lg font-semibold mb-2 text-foreground font-[var(--font-heading)]">{capability.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{capability.description}</p>
               <div className="flex flex-wrap gap-2">
                 {capability.tags.map((tag) => (
-                  <span 
+                  <span
                     key={tag}
-                    className="text-xs font-medium text-muted-foreground px-2.5 py-1 bg-background rounded-md border border-border"
+                    className="text-xs font-medium text-muted-foreground px-2.5 py-1 bg-secondary border border-border rounded-md"
                   >
                     {tag}
                   </span>

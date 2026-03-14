@@ -27,16 +27,16 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="py-16 border-t border-border">
-      <div className="max-w-6xl mx-auto px-6">
+    <footer className="py-16 border-t border-border bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 lg:gap-12">
           {/* Logo and description */}
           <div className="col-span-2">
-            <Link href="/" className="flex items-center gap-2.5 mb-4">
-              <div className="w-8 h-8 bg-foreground rounded-lg flex items-center justify-center">
-                <span className="text-background font-bold text-sm">A</span>
+            <Link href="/" className="flex items-center gap-2.5 mb-4 group">
+              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                <span className="text-white font-bold text-sm font-[var(--font-heading)]">A</span>
               </div>
-              <span className="font-semibold text-lg tracking-tight">archie</span>
+              <span className="font-semibold text-lg tracking-tight text-foreground font-[var(--font-heading)]">archie</span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
               Your AI-powered pocket architect, making renovations and construction projects approachable for everyone.
@@ -45,7 +45,7 @@ export function Footer() {
 
           {/* Product links */}
           <div>
-            <p className="font-medium text-sm mb-4">Product</p>
+            <p className="font-medium text-sm mb-4 text-foreground font-[var(--font-heading)]">Product</p>
             <ul className="flex flex-col gap-3">
               {footerLinks.product.map((link) => (
                 <li key={link.label}>
@@ -59,7 +59,7 @@ export function Footer() {
 
           {/* Company links */}
           <div>
-            <p className="font-medium text-sm mb-4">Company</p>
+            <p className="font-medium text-sm mb-4 text-foreground font-[var(--font-heading)]">Company</p>
             <ul className="flex flex-col gap-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
@@ -73,7 +73,7 @@ export function Footer() {
 
           {/* Legal links */}
           <div>
-            <p className="font-medium text-sm mb-4">Legal</p>
+            <p className="font-medium text-sm mb-4 text-foreground font-[var(--font-heading)]">Legal</p>
             <ul className="flex flex-col gap-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
@@ -87,7 +87,7 @@ export function Footer() {
 
           {/* Social links */}
           <div>
-            <p className="font-medium text-sm mb-4">Connect</p>
+            <p className="font-medium text-sm mb-4 text-foreground font-[var(--font-heading)]">Connect</p>
             <ul className="flex flex-col gap-3">
               {footerLinks.social.map((link) => (
                 <li key={link.label}>

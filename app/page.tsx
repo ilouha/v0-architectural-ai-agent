@@ -15,8 +15,8 @@ export default function Home() {
       <Header />
       <Hero />
       <HowItWorks />
-      <JustCCArchie />
       <Templates />
+      <JustCCArchie />
       <Services />
       <About />
       <Testimonials />

@@ -2,33 +2,38 @@ import Link from "next/link"
 
 const footerLinks = {
   product: [
-    { label: "Features", href: "#" },
-    { label: "How it works", href: "#how-it-works" },
-    { label: "Pricing", href: "#" },
-    { label: "FAQ", href: "#" }
+    { label: "Features", href: "/features" },
+    { label: "How it works", href: "/how-it-works" },
+    { label: "Pricing", href: "/pricing" },
+    { label: "FAQ", href: "/faq" }
   ],
   company: [
-    { label: "About", href: "#about" },
-    { label: "Blog", href: "#" },
-    { label: "Careers", href: "#" },
-    { label: "Contact", href: "#" }
+    { label: "About", href: "/about" },
+    { label: "Blog", href: "/blog" },
+    { label: "Careers", href: "/careers" },
+    { label: "Contact", href: "/contact" }
   ],
   legal: [
-    { label: "Privacy", href: "#" },
-    { label: "Terms", href: "#" },
-    { label: "Cookies", href: "#" }
+    { label: "Privacy", href: "/privacy" },
+    { label: "Terms", href: "/terms" },
+    { label: "Cookies", href: "/cookies" }
   ],
   social: [
-    { label: "Twitter", href: "#" },
-    { label: "LinkedIn", href: "#" },
-    { label: "Instagram", href: "#" }
+    { label: "Twitter", href: "/twitter" },
+    { label: "LinkedIn", href: "/linkedin" },
+    { label: "Instagram", href: "/instagram" }
   ]
 }
 
 export function Footer() {
   return (
-    <footer className="py-12 border-t border-border/40 bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <footer className="py-12 border-t border-border/40 bg-white blueprint-grid relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        {/* Tagline */}
+        <p className="text-lg lg:text-xl text-foreground/30 font-[var(--font-heading)] italic text-center mb-10 leading-relaxed">
+          {'"'}Building with confidence starts with the right guide.{'"'}
+        </p>
+
         <div className="grid grid-cols-2 md:grid-cols-6 gap-8 lg:gap-12">
           {/* Logo and description */}
           <div className="col-span-2">

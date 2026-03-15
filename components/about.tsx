@@ -90,7 +90,7 @@ export function About() {
 
               <Button size="lg" className="w-fit gap-2 h-11 text-sm rounded-lg">
                 Start a conversation
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5 btn-arrow" />
               </Button>
             </div>
           </div>

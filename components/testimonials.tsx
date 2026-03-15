@@ -54,10 +54,10 @@ export function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.author}
-              className="bg-white p-6 rounded-xl border border-border/40 card-shadow hover:card-shadow-hover hover:-translate-y-1 transition-all duration-300"
+              className="group bg-white p-6 rounded-xl border border-border/40 card-shadow hover:card-shadow-hover hover:-translate-y-1 transition-all duration-300"
             >
               {/* Decorative quote */}
-              <span className="text-4xl leading-none text-primary/[0.12] font-serif select-none">{'"'}</span>
+              <span className="text-4xl leading-none text-primary/[0.12] font-serif select-none inline-block transition-transform duration-300 group-hover:scale-125 group-hover:text-primary/20">{'"'}</span>
 
               <blockquote className="text-sm text-foreground leading-relaxed mt-1 mb-6">
                 {testimonial.quote}

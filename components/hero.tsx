@@ -55,31 +55,31 @@ export function Hero() {
           {/* Left content */}
           <div className="flex flex-col gap-10">
             {/* Badge */}
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground hero-animate">
               <span className="inline-block w-1.5 h-1.5 bg-primary rounded-full mr-2 relative top-[-1px]" />
               Trusted by 500+ homeowners
             </p>
 
             {/* Mobile/Tablet blueprint animation */}
-            <div className="lg:hidden w-full aspect-square max-w-[340px] sm:max-w-[400px] mx-auto overflow-hidden">
+            <div className="lg:hidden w-full aspect-square max-w-[340px] sm:max-w-[400px] mx-auto overflow-hidden hero-visual-animate">
               <ArchieBlueprintAnimation />
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-[4.25rem] font-bold tracking-tight leading-[0.95] text-foreground font-[var(--font-heading)]">
+            <h1 className="text-4xl sm:text-5xl lg:text-[4.25rem] font-bold tracking-tight leading-[0.95] text-foreground font-[var(--font-heading)] hero-animate hero-animate-delay-1">
               Meet{" "}
               <span className="gradient-text">Archie</span>
               , your project{" "}
               <span className="whitespace-nowrap">co-pilot</span>
             </h1>
 
-            <p className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed">
+            <p className="text-base lg:text-lg text-muted-foreground max-w-lg leading-relaxed hero-animate hero-animate-delay-2">
               Expert guidance for your renovation or construction project. From permits and zoning to budgets and contractor coordination.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 hero-animate hero-animate-delay-3">
               <Button size="lg" className="h-11 px-7 gap-2 text-sm rounded-lg">
                 Start building with Archie
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5 btn-arrow" />
               </Button>
               <Button variant="outline" size="lg" className="h-11 px-7 gap-2 text-sm rounded-lg">
                 <Play className="w-3.5 h-3.5" />
@@ -88,7 +88,7 @@ export function Hero() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border/60">
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border/60 hero-animate hero-animate-delay-4">
               <div>
                 <p className="text-2xl lg:text-4xl font-semibold tracking-tight text-foreground font-[var(--font-heading)]">
                   <AnimatedNumber value={500} suffix="+" />
@@ -111,7 +111,7 @@ export function Hero() {
           </div>
 
           {/* Right - Blueprint animation (desktop only) — clean, no extra blobs */}
-          <div className="relative hidden lg:block">
+          <div className="relative hidden lg:block hero-visual-animate">
             <div className="w-[156%] aspect-square max-w-[780px] -mr-[28%]">
               <ArchieBlueprintAnimation />
             </div>
@@ -119,19 +119,25 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Trusted by section — slight inset feel */}
-      <div className="relative z-10 mt-12 lg:mt-20">
+      {/* Trusted by section — marquee */}
+      <div className="relative z-10 mt-12 lg:mt-20 hero-animate hero-animate-delay-5">
         <div className="border-t border-border/40 bg-gradient-to-b from-secondary/30 to-transparent">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
-            <p className="text-xs text-muted-foreground text-center mb-6 tracking-wide">
+            <p className="text-xs text-muted-foreground text-center mb-6 tracking-widest uppercase">
               Trusted by homeowners and professionals
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-6">
-              {["Zillow", "Houzz", "HomeAdvisor", "Angi", "BuilderTrend"].map((brand) => (
-                <span key={brand} className="text-xl font-semibold text-foreground/25 font-[var(--font-heading)] tracking-tight">
-                  {brand}
-                </span>
-              ))}
+            <div className="overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_15%,black_85%,transparent)]">
+              <div className="marquee-track">
+                {[...Array(2)].map((_, dupeIdx) => (
+                  <div key={dupeIdx} className="flex items-center shrink-0">
+                    {["Zillow", "Houzz", "HomeAdvisor", "Angi", "BuilderTrend", "Thumbtack", "Porch"].map((brand) => (
+                      <span key={`${brand}-${dupeIdx}`} className="text-xl font-semibold text-foreground/20 font-[var(--font-heading)] tracking-tight mx-10 whitespace-nowrap select-none">
+                        {brand}
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

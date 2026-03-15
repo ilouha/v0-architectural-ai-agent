@@ -24,8 +24,8 @@ export function Header() {
       <div className="max-w-6xl mx-auto px-5 sm:px-6">
         <div className="flex items-center justify-between h-12">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-7 h-7 bg-primary rounded-full flex items-center justify-center transition-transform group-hover:scale-105">
+          <Link href="/" className="flex items-center gap-2 group" aria-label="Archie — Home">
+            <div className="w-7 h-7 bg-primary rounded-full flex items-center justify-center transition-transform group-hover:scale-105" aria-hidden="true">
               <span className="text-white font-bold text-xs font-[var(--font-heading)]">A</span>
             </div>
             <span className="font-semibold text-[15px] tracking-tight text-foreground font-[var(--font-heading)]">archie</span>
@@ -37,7 +37,7 @@ export function Header() {
               <Link
                 key={item}
                 href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-[13px] text-muted-foreground hover:text-foreground px-3 py-1.5 rounded-full hover:bg-primary/5 transition-colors duration-150"
+                className="nav-link text-[13px] text-muted-foreground hover:text-foreground px-3 py-1.5 rounded-full hover:bg-primary/5 transition-colors duration-150"
               >
                 {item}
               </Link>
@@ -51,7 +51,7 @@ export function Header() {
             </Button>
             <Button size="sm" className="gap-1.5 rounded-full h-8 text-[13px]">
               Get started
-              <ArrowRight className="w-3 h-3" />
+              <ArrowRight className="w-3 h-3 btn-arrow" />
             </Button>
           </div>
 

@@ -31,7 +31,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 lg:py-36 relative overflow-hidden">
+    <section id="how-it-works" className="py-24 lg:py-36 relative overflow-hidden blueprint-grid">
       {/* Subtle radial gradient background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_50%,rgba(30,90,168,0.03),transparent_70%)]" />
 
@@ -54,7 +54,7 @@ export function HowItWorks() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
           {steps.map((step) => (
             <div key={step.number} className="group">
-              <div className="flex flex-col gap-4 p-5 rounded-xl bg-white border border-border/40 card-shadow hover:card-shadow-hover hover:-translate-y-1 transition-all duration-300">
+              <div className="flex flex-col gap-4 p-5 rounded-xl bg-white border border-border/40 card-shadow hover:card-shadow-hover hover:-translate-y-1 transition-all duration-300 card-accent-left">
                 <div className="flex items-center justify-between">
                   <div className="w-10 h-10 bg-primary/8 rounded-lg flex items-center justify-center">
                     <step.icon className="w-[18px] h-[18px] text-primary" />

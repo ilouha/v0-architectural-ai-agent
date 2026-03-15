@@ -64,7 +64,7 @@ export function Services() {
             className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:gap-3 transition-all cursor-pointer"
           >
             View all features
-            <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-3.5 h-3.5 btn-arrow" />
           </a>
         </div>
 
@@ -73,10 +73,10 @@ export function Services() {
           {capabilities.map((capability) => (
             <div
               key={capability.title}
-              className="group p-5 bg-white rounded-xl border border-border/40 card-shadow hover:card-shadow-hover hover:-translate-y-1 transition-all duration-300"
+              className="group p-5 bg-white rounded-xl border border-border/40 card-shadow hover:card-shadow-hover hover:-translate-y-1 transition-all duration-300 card-accent-left"
             >
-              <div className="w-9 h-9 bg-primary/8 rounded-lg flex items-center justify-center mb-4">
-                <capability.icon className="w-[18px] h-[18px] text-primary" />
+              <div className="w-9 h-9 bg-primary/8 group-hover:bg-primary rounded-lg flex items-center justify-center mb-4 transition-colors duration-300">
+                <capability.icon className="w-[18px] h-[18px] text-primary group-hover:text-white transition-colors duration-300" />
               </div>
               <h3 className="text-[15px] font-semibold mb-2 text-foreground font-[var(--font-heading)]">{capability.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">{capability.description}</p>

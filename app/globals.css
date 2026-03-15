@@ -47,9 +47,9 @@
 }
 
 @theme inline {
-  --font-sans: var(--font-sans, 'DM Sans'), 'DM Sans', system-ui, sans-serif;
-  --font-heading: var(--font-heading, 'Space Grotesk'), 'Space Grotesk', system-ui, sans-serif;
-  --font-mono: 'Space Grotesk', monospace;
+  --font-sans: var(--font-sans, 'Sora'), 'Sora', system-ui, sans-serif;
+  --font-heading: var(--font-heading, 'Fraunces'), 'Fraunces', Georgia, serif;
+  --font-mono: 'Sora', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -149,4 +149,162 @@
     0 4px 8px rgba(30, 90, 168, 0.06),
     0 16px 40px rgba(30, 90, 168, 0.10),
     0 32px 64px rgba(30, 90, 168, 0.08);
+}
+
+/* ── Hero entrance animations ── */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+.hero-animate {
+  opacity: 0;
+  animation: hero-fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-animate-delay-1 { animation-delay: 0.08s; }
+.hero-animate-delay-2 { animation-delay: 0.16s; }
+.hero-animate-delay-3 { animation-delay: 0.28s; }
+.hero-animate-delay-4 { animation-delay: 0.4s; }
+.hero-animate-delay-5 { animation-delay: 0.52s; }
+
+.hero-visual-animate {
+  opacity: 0;
+  animation: hero-scale-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+}
+
+/* ── Blueprint grid texture ── */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(30, 90, 168, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 90, 168, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ── Section divider with compass ── */
+.section-divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1.5rem;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.section-divider-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 1rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--background);
+  color: var(--primary);
+}
+
+/* ── Logo marquee ── */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Button arrow micro-interaction ── */
+.btn-arrow {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button:hover .btn-arrow,
+a:hover .btn-arrow {
+  transform: translateX(2px);
+}
+
+/* ── Nav link underline grow ── */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background: var(--primary);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateX(-50%);
+  border-radius: 1px;
+}
+
+.nav-link:hover::after {
+  width: 60%;
+}
+
+/* ── CTA dark section ── */
+.cta-dark {
+  background: #0F1D2E;
+  background-image:
+    linear-gradient(rgba(30, 90, 168, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 90, 168, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@keyframes logo-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(30, 90, 168, 0.3), 0 0 40px rgba(30, 90, 168, 0.1); }
+  50% { box-shadow: 0 0 30px rgba(30, 90, 168, 0.5), 0 0 60px rgba(30, 90, 168, 0.2); }
+}
+
+.logo-glow {
+  animation: logo-glow 3s ease-in-out infinite;
+}
+
+/* ── Card hover variants ── */
+.card-accent-left {
+  border-left: 2px solid transparent;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.card-accent-left:hover {
+  border-left-color: var(--primary);
+}
+
+/* Slow down gradient text */
+.gradient-text {
+  animation-duration: 10s;
 }
